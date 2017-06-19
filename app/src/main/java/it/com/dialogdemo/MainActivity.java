@@ -51,7 +51,9 @@ public class MainActivity extends Activity {
                 mDialog.show();
                 break;
             case R.id.ivor3_btn:
-
+                ShareDialog dialog = new ShareDialog(this, R.layout.sharelayout);
+                dialog.getInstance();
+                dialog.show();
                 break;
 
             case R.id.ivor4_btn://自定义的dialog

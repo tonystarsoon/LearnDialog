@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/transparency">
+
+    <TextView
+        android:id="@+id/cancelview"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="取消分享"
+        android:textColor="@color/black"
+        android:textSize="18.0sp"/>
+
+    <LinearLayout
+        android:id="@+id/sharelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/load_more_final_offset_google"
+        android:layout_above="@id/cancelview"
+        android:background="@color/boom_gray"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp20">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/wxshare"
+                android:layout_width="@dimen/load_more_footer_height_classic"
+                android:layout_height="@dimen/load_more_footer_height_classic"
+                android:src="@mipmap/ic_share_wechat"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/friendshare"
+                android:layout_width="@dimen/load_more_footer_height_classic"
+                android:layout_height="@dimen/load_more_footer_height_classic"
+                android:src="@mipmap/ic_share_frend"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/qqshare"
+                android:layout_width="@dimen/load_more_footer_height_classic"
+                android:layout_height="@dimen/load_more_footer_height_classic"
+                android:src="@mipmap/ic_share_qq"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/sinashare"
+                android:layout_width="@dimen/load_more_footer_height_classic"
+                android:layout_height="@dimen/load_more_footer_height_classic"
+                android:src="@mipmap/ic_share_sina"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/nulllayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/sharelayout"
+        android:background="@color/transparency"/>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+

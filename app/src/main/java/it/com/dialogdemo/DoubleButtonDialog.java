@@ -16,7 +16,6 @@ import android.widget.TextView;
 /**
  * Created by tony on 2017/5/30.
  */
-
 public class DoubleButtonDialog extends Dialog implements View.OnClickListener {
     private int mLayout = -1;
     private Context mContext;
@@ -80,6 +79,9 @@ public class DoubleButtonDialog extends Dialog implements View.OnClickListener {
         setOnKeyListener(new OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {//返回键让对话框消失.
+                    dialog.dismiss();
+                }
                 return true;
             }
         });
