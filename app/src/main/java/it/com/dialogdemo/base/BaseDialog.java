@@ -1,66 +1,110 @@
 package it.com.dialogdemo.base;
 
-import android.app.Activity;
-import android.app.DialogFragment;
+import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
+import android.content.DialogInterface;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.StyleRes;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import it.com.dialogdemo.R;
-import it.com.dialogdemo.util.ConvertData;
-
 
 /**
- * Created by admin on 2017/6/25.
+ * Created by tony on 2016/6/26.
+ * 继承dialog实现的对话框的dialog基类.
  */
-
-public class BaseDialog extends DialogFragment implements View.OnClickListener{
-    private static final String BASE_DIALOG = "BaseDialog";
+public class BaseDialog extends Dialog implements View.OnClickListener {
+    protected int mLayout = -1;
     protected Context mContext;
-    protected BaseDialog.ClickCallBack mCallBack;
+    protected TextView mContentView;
+    protected TextView mTitleView;
+    protected View mCancel;
+    protected View mOk;
+    protected View mView;
+    protected View mRootContentView;
+    protected String mTitle;
+    protected String mContent;
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        Log.d(BASE_DIALOG, "onAttach--------------");
-        mContext = getActivity();
+    public BaseDialog(@NonNull Context context) {
+        super(context);
+        init(context);
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d(BASE_DIALOG, "onCreate----------");
-        //设置样式和主题
-        setStyle(STYLE_NO_TITLE, ConvertData.getIdOfStyle(mContext, "theme_dialog_no_title2"));
+    public BaseDialog(@NonNull Context context, @StyleRes int themeResId) {
+        super(context, themeResId);
+        init(context);
     }
 
-    /**
-     * 确定和取消按钮的点击事件
-     *
-     * @param view
-     */
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.negative:
-                if (mCallBack != null) {
-                    mCallBack.negativeClick();
+    public BaseDialog(@NonNull Context context, @StyleRes int themeResId, int layout) {
+        super(context, themeResId);
+        this.mLayout = layout;
+        init(context);
+    }
+
+    protected BaseDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+        super(context, cancelable, cancelListener);
+        init(context);
+    }
+
+    private void init(Context context) {
+        mContext = context;
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题
+        setCanceledOnTouchOutside(false);//外部不可点击
+        Window window = getWindow();
+        mRootContentView = window.getDecorView().findViewById(android.R.id.content);
+//        getWindow().setWindowAnimations(R.style.dialogAnim);//设置动画
+        setOnKeyListener(new OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {//返回键让对话框消失.
+                    BaseDialog.this.dismiss();
                 }
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ok:
                 dismiss();
                 break;
-            case R.id.positive:
-                if (mCallBack != null) {
-                    mCallBack.positiveClick();
-                }
+            case R.id.cancel:
                 dismiss();
                 break;
         }
     }
 
-    public interface ClickCallBack {
-        void positiveClick();
+    @Override
+    public void show() {
+        super.show();
+        //设置动画
+//        AnimationSet animatorIn = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.photo_dialog_in_anim);
+        Animation animatorIn = AnimationUtils.loadAnimation(mContext, R.anim.photo_dialog_in_anim);
+        mRootContentView.startAnimation(animatorIn);
+    }
 
-        void negativeClick();
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        //设置动画
+//        AnimationSet animatorOut = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.photo_dialog_out_anim);
+        Animation animatorOut = AnimationUtils.loadAnimation(mContext, R.anim.photo_dialog_out_anim);
+        mRootContentView.startAnimation(animatorOut);
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
+    }
+
+    public void setContent(String content) {
+        mContent = content;
     }
 }

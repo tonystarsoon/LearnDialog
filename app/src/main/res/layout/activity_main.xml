@@ -7,48 +7,54 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/ivor1_btn"
+        android:id="@+id/share_dialog_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="从底部弹出对分享框框!"/>
 
     <Button
         android:id="@+id/ivor2_btn"
-        android:text="hello Java1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"/>
+        android:layout_marginTop="2dp"
+        android:text="继承自dialog两个按钮的对话框"/>
+
+    <Button
+        android:id="@+id/show_photo_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示一张图片的dialog"/>
+
+    <Button
+        android:id="@+id/show_ok_and_cancel_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="继承自DialogFragment自定义的dialog"/>
+
+    <Button
+        android:id="@+id/show_dialog_by_onCreateDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="通过onCreateDialog创建的Dialog"/>
+
+    <Button
+        android:id="@+id/dialogButton_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="通过AlertDialog创建的,保留了title和两个button"/>
 
     <Button
         android:id="@+id/ivor3_btn"
-        android:text="hello Java2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"/>
+        android:layout_marginTop="2dp"
+        android:text="hello Java2"/>
 
     <Button
         android:id="@+id/ivor4_btn"
-        android:text="hello Java3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"/>
-    
-    <Button
-        android:id="@+id/ivor5_btn"
-        android:text="hello Java4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"/>
-
-    <Button
-        android:id="@+id/show_dialog1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="number 1" />
-
-    <Button
-        android:id="@+id/show_dialog2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="number 2" />
+        android:layout_marginTop="2dp"
+        android:text="hello Java3"/>
 </LinearLayout>

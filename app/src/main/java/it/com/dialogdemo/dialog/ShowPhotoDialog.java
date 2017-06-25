@@ -16,8 +16,8 @@ import it.com.dialogdemo.util.ConvertData;
 /**
  * 就显示一个dialog
  */
-public class QRCodeDialog extends BaseDialogFragment {
-    private static final String TAG = "QRCodeDialog";
+public class ShowPhotoDialog extends BaseDialogFragment {
+    private static final String TAG = "ShowPhotoDialog";
     public static final String DOWNLOAD_QR_CODE = "messagetoast_man";
 
     @Override
