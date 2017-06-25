@@ -15,6 +15,9 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import it.com.dialogdemo.dialog.AlterDialogFragment;
+import it.com.dialogdemo.dialog.DoubleButtonDialog;
+import it.com.dialogdemo.dialog.ShareDialog;
 
 public class MainActivity extends Activity {
     public final static String ALERT_DIALOG_TAG = "ALERT_DIALOG_TAG";

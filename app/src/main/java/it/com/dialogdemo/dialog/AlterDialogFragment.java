@@ -1,10 +1,13 @@
-package it.com.dialogdemo;
+package it.com.dialogdemo.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+
+import it.com.dialogdemo.MainActivity;
+import it.com.dialogdemo.R;
 
 public class AlterDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
     public static AlterDialogFragment newInstance(String title, String message) {

@@ -1,4 +1,4 @@
-package it.com.dialogdemo;
+package it.com.dialogdemo.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,8 +13,11 @@ import android.view.Window;
 import android.view.animation.AnimationSet;
 import android.widget.TextView;
 
+import it.com.dialogdemo.util.OptAnimationLoader;
+import it.com.dialogdemo.R;
+
 /**
- * Created by tony on 2017/5/30.
+ * 通过继承Dialog来创建对话框.
  */
 public class DoubleButtonDialog extends Dialog implements View.OnClickListener {
     private int mLayout = -1;

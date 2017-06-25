@@ -1,4 +1,4 @@
-package it.com.dialogdemo;
+package it.com.dialogdemo.util;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -17,6 +17,9 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
+/**
+ * 补间动画加载器
+ */
 public class OptAnimationLoader {
 
     public static Animation loadAnimation(Context context, int id)
@@ -88,8 +91,6 @@ public class OptAnimationLoader {
                 parent.addAnimation(anim);
             }
         }
-
         return anim;
-
     }
 }

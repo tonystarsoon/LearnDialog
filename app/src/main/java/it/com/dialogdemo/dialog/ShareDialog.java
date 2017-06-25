@@ -1,4 +1,4 @@
-package it.com.dialogdemo;
+package it.com.dialogdemo.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,6 +8,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import it.com.dialogdemo.R;
+
+/**
+ * 通过new Dialog的方法来创建一个dialog
+ */
 public class ShareDialog {
     private Context mContext;
     private int mLayoutId;
