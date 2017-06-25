@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.WindowManager;
 
 import it.com.dialogdemo.MainActivity;
 import it.com.dialogdemo.R;
@@ -34,7 +36,11 @@ public class AlterDialogFragment extends DialogFragment implements DialogInterfa
                 .setMessage(getMessage())
                 .setPositiveButton("OK", this)
                 .setNegativeButton("Cancel", this);
-        return builder.create();
+        AlertDialog alertDialog = builder.create();
+        WindowManager.LayoutParams attributes = alertDialog.getWindow().getAttributes();
+        attributes.gravity = Gravity.CENTER;
+//        attributes.windowAnimations = R.style.
+        return alertDialog;
     }
 
     @Override

@@ -34,4 +34,28 @@
     <style name="sharedialogWindowStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@drawable/sharedialog_choose_bg</item>
     </style>
+
+    <!--BaseDialogFragment 的主题-->
+    <style name="theme_dialog_no_title" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <!--TwoButtonDialog 的主题-->
+    <style name="theme_dialog_no_title2" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- TwoButtonDialog 的弹出和收缩的动画-->
+    <style name="dialogAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_push_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_push_out</item>
+    </style>
 </resources>

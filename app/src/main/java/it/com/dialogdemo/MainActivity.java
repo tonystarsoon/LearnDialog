@@ -1,11 +1,11 @@
 package it.com.dialogdemo;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,9 +17,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import it.com.dialogdemo.dialog.AlterDialogFragment;
 import it.com.dialogdemo.dialog.DoubleButtonDialog;
+import it.com.dialogdemo.dialog.QRCodeDialog;
 import it.com.dialogdemo.dialog.ShareDialog;
+import it.com.dialogdemo.dialog.TwoButtonDialog;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
     public final static String ALERT_DIALOG_TAG = "ALERT_DIALOG_TAG";
     @BindView(R.id.ivor1_btn)
     Button mIvor1_btn;
@@ -40,7 +42,7 @@ public class MainActivity extends Activity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.ivor1_btn, R.id.ivor2_btn, R.id.ivor3_btn, R.id.ivor4_btn, R.id.ivor5_btn})
+    @OnClick({R.id.ivor1_btn, R.id.ivor2_btn, R.id.ivor3_btn, R.id.ivor4_btn, R.id.ivor5_btn, R.id.show_dialog1, R.id.show_dialog2})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivor1_btn:
@@ -93,8 +95,23 @@ public class MainActivity extends Activity {
                 params5.width = -1;
                 params5.height = -2;
                 mAlertDialog.onWindowAttributesChanged(params5);
-
                 mAlertDialog.show();
+                break;
+            case R.id.show_dialog1://显示一张图片
+                QRCodeDialog qrCodeDialog = new QRCodeDialog();
+                qrCodeDialog.show(getSupportFragmentManager(), "messagetoast_man");
+                break;
+            case R.id.show_dialog2://确定、取消按钮的dialog
+                new TwoButtonDialog(new TwoButtonDialog.ClickCallBack() {
+                    @Override
+                    public void positiveClick() {
+                        Toast.makeText(MainActivity.this, "成功", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void negativeClick() {
+                        Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
+                    }
+                }).show(getSupportFragmentManager(), "fuck2");
                 break;
             default:
                 break;

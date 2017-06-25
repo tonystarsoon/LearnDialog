@@ -8,35 +8,47 @@
 
     <Button
         android:id="@+id/ivor1_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello World!"/>
 
     <Button
         android:id="@+id/ivor2_btn"
         android:text="hello Java1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="2dp"/>
 
     <Button
         android:id="@+id/ivor3_btn"
         android:text="hello Java2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="2dp"/>
 
     <Button
         android:id="@+id/ivor4_btn"
         android:text="hello Java3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
-
+        android:layout_marginTop="2dp"/>
+    
     <Button
         android:id="@+id/ivor5_btn"
         android:text="hello Java4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/show_dialog1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="number 1" />
+
+    <Button
+        android:id="@+id/show_dialog2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="number 2" />
 </LinearLayout>
