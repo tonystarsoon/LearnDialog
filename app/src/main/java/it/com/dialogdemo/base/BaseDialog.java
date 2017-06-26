@@ -57,6 +57,8 @@ public class BaseDialog extends Dialog implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题
         setCanceledOnTouchOutside(false);//外部不可点击
         Window window = getWindow();
+
+        //设置动画只能通过这种方式去设置：1.获取到android.R.id.content，2.startAnimation
         mRootContentView = window.getDecorView().findViewById(android.R.id.content);
 //        getWindow().setWindowAnimations(R.style.dialogAnim);//设置动画
         setOnKeyListener(new OnKeyListener() {
